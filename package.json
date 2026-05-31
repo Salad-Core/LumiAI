@@ -1,0 +1,19 @@
+{
+  "name": "lumi_web",
+  "version": "1.0.0",
+  "description": "Lumi AI Gateway web interface",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve .",
+    "start": "npx -y serve ."
+  },
+  "keywords": [
+    "lumi",
+    "ai",
+    "gateway",
+    "developer",
+    "assistant"
+  ],
+  "author": "NK.AI | Saladexp.xyz",
+  "license": "MIT"
+}

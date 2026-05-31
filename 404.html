@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumi AI - Status</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #050505;
+      --bg3: #0f0f11;
+      --brd: rgba(255,255,255,0.06);
+      --brd2: rgba(255,255,255,0.12);
+      --tx: #e3e3e3;
+      --tx2: #a1a1aa;
+      --tx3: #71717a;
+      --acc: #ffffff;
+      --font: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--tx);
+      font-family: var(--font);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(16, 44, 96, 0.15) 0%, rgba(8, 20, 48, 0.05) 50%, transparent 100%);
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(80px);
+    }
+
+    .auth_card {
+      width: 100%;
+      max-width: 380px;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .auth_card h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .status_subtitle {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--tx3);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .auth_card p {
+      color: var(--tx2);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-bottom: 1.75rem;
+    }
+
+    .auth_btn {
+      width: 100%;
+      padding: 0.65rem;
+      background: var(--acc);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-family: var(--font);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      transition: background 0.15s ease;
+    }
+
+    .auth_btn:hover {
+      background: #e3e3e3;
+    }
+
+    .auth_links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    .auth_link {
+      color: var(--tx3);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .auth_link:hover {
+      color: var(--tx2);
+    }
+
+    .auth_bullet {
+      color: var(--tx3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth_card">
+    <h1>Lumi AI</h1>
+    <div class="status_subtitle" id="status_title">Loading...</div>
+    <p id="status_desc">Checking...</p>
+    <a href="#" class="auth_btn" id="status_btn">Continue</a>
+    <div class="auth_links">
+      <a href="https://discord.com/invite/4WvuVcqPSV" target="_blank" class="auth_link">Discord</a>
+      <span class="auth_bullet">&bull;</span>
+      <a href="https://saladlol.mysellauth.com/product/lumi-ai-ultra" target="_blank" class="auth_link">Get API Key</a>
+    </div>
+  </div>
+
+  <script>
+    const is_root = window.location.pathname === "/" || 
+                    window.location.pathname.endsWith("/index.html") || 
+                    window.location.pathname.endsWith("/LumiWeb/") ||
+                    window.location.pathname.endsWith("/LumiWeb/index.html");
+
+    const title_el = document.getElementById("status_title");
+    const desc_el = document.getElementById("status_desc");
+    const btn_el = document.getElementById("status_btn");
+
+    if (is_root) {
+      document.title = "Lumi AI - Under Maintenance";
+      title_el.textContent = "Under Maintenance";
+      desc_el.textContent = "We are currently upgrading our core networks to bring you the next generation of developer intelligence. We'll be back online shortly.";
+      btn_el.textContent = "Discord Status";
+      btn_el.href = "https://discord.com/invite/4WvuVcqPSV";
+    } else {
+      document.title = "Lumi AI - Page Not Found";
+      title_el.textContent = "Page Not Found";
+      desc_el.textContent = "The page you are looking for does not exist or has been shifted into another timeline.";
+      btn_el.textContent = "Return Home";
+      btn_el.href = "https://ai.saladexp.xyz/";
+    }
+  </script>
+</body>
+</html>
